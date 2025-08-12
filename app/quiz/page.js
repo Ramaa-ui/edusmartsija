@@ -352,7 +352,10 @@ function SoalComponent({ step, setStep, quizQuestions, current, selected, showFe
           <button
             key={idx}
             onClick={() => {
-              if (!showFeedback) setSelected(idx);
+              if (!showFeedback && selected === null) {
+                setSelected(idx);
+                handleAnswer(idx);
+              }
             }}
             disabled={showFeedback}
             style={{
